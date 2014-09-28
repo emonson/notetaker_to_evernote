@@ -115,7 +115,6 @@ for page in pages:
 
 # TODO: validate everdoc
 
-# Save evernote doc
-html = everdoc.prettify("utf-8")
+# Save evernote doc (prettify screws up <content> : can't have CDATA on separate lines as that tag...
 with open(evernote_file, 'w') as outfile:
-    outfile.write(html)
+    outfile.write(str(everdoc))
